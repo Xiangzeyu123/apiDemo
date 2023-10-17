@@ -1,0 +1,66 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+/* 使用page就是为了保证  满屏 */
+Page{
+  padding-top: 15px;
+  background: #f0eeed
+}
+.like{
+  position:fixed;
+  width:100%;
+  top: 0;
+  z-index: 99;
+}
+
+.view_contain {
+  margin-top: 90rpx;
+  width: 100%;
+  height: 500px;
+}
+
+
+.view_1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  background: #a9eeff;
+}
+
+.view_image_text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+.view_3 {
+  margin-top: 15rpx;
+  width: 100%;
+  height: 50%;
+  /* background: #f0eeed; */
+}
+
+
+
+

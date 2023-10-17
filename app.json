@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/userIndex/userIndex",
+    "pages/excelimport/excelimport",
+    "pages/common/common",
+    "pages/index/userUpdate/userUpdate",
+    "pages/JumpToPage/JumpToPage",
+    "pages/home/home",
+    "pages/Allattendance/Allattendance",
+    "pages/index/index",
+    "pages/logs/logs",
+    "components/calendar/calendar",
+    "pages/caseCommon/caseCommon",
+    "pages/userInfo/userInfo"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00BFFF",
+    "navigationBarTitleText": "GHB出勤记录小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-nav-bar": "@vant/weapp/nav-bar/index"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#00BFFF",
+    "selectedColor": "#000000",
+    "backgroundColor": "#00BFFF",
+    "list": [
+      {
+        "pagePath": "pages/home/home"
+      },
+      {
+        "pagePath": "pages/JumpToPage/JumpToPage"
+      },
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/userIndex/userIndex"
+      },
+      {
+        "pagePath": "pages/Allattendance/Allattendance"
+      },
+      {
+        "pagePath": "pages/excelimport/excelimport"
+      }
+    ]
+  }
+}

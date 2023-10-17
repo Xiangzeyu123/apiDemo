@@ -1,0 +1,20 @@
+<van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="個人情報の変更" left-text="戻る" left-arrow bind:click-left="onClickLeft" />
+<view class="main">
+  <view class='row'>
+        <view class='info'>
+               <input type='text' class= 'info-input' model:value="{{oldPassword}}" placeholder="現在のパスワードを入力してください" />
+         </view>
+ 
+ </view>
+  <view class='row'>
+        <view class='info'>
+               <input  type='text' class= 'info-input' model:value="{{passwordA}}"  placeholder="新しいパスワードを入力してください" />
+         </view>
+ </view>
+   <view class='row'>
+        <view class='info'>
+               <input  type='text' class= 'info-input' model:value="{{passwordB}}"  placeholder="新しいパスワード(確認)を入力してください" />
+         </view>
+ </view>
+</view>
+ <button class='submit' bindtap='submit'>変更する</button>

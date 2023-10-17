@@ -1,0 +1,23 @@
+<view class="like">
+  <van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="社員管理" left-text="キャンセル" left-arrow bind:click-left="onClickLeft" />
+</view>
+<view class="like_1">
+  <van-cell-group>
+    <van-field model:value="{{username }}" label="社員番号：" readonly="{{ifUpdate}}" placeholder="社員番号を入力してください"  />
+    <van-field model:value="{{nickName }}" label="ユーザーID：" readonly="{{ifUpdate}}" placeholder="ユーザーIDを入力してください"  />
+    <van-field model:value="{{name }}" label="ユーザー名：" readonly="{{ifUpdate}}" placeholder="ユーザー名を入力してください"  />
+    <van-field model:value="{{password }}" label="パスワード:" placeholder="パスワードを入力してください" type="password" />
+    <van-field model:value="{{ columns[identity]}}" label="役割" bindtap='showPopup' readonly="{{true}}" placeholder="役割を選択してください"/>
+    <van-popup show="{{ statusShow&&!ifUpdate }}" bind:close="onClose" position="bottom" custom-style="height:50%">
+            <van-picker show-toolbar  confirm-button-text="確認" cancel-button-text="キャンセル"columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" />
+    </van-popup>
+  </van-cell-group>
+</view>
+<view style="display: flex;margin-top: 70rpx; flex-direction: row;;justify-content: space-between;">
+  <view style="width:170rpx;margin-left: 70rpx;">
+    <van-button type="primary" size="large" bind:tap="onExit">キャンセル</van-button>
+  </view>
+    <view style=" width:170rpx;margin-right: 70rpx;">
+        <van-button type="info" size="large" bind:tap="submitData">保存</van-button>
+    </view>
+</view>

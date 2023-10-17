@@ -1,0 +1,58 @@
+<view class="like">
+  <van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="社员管理"  left-text="ログアウト" left-arrow bind:click-left="onClickLeft" />
+</view>
+<!-- <view class="head_fix head">
+    <van-search value="{{ seacherVal }}" label="名前" placeholder="ユーザーIDを入力してください" show-action  bind:cancel="onCancel" bind:search="onSearch" action-text="キャンセル">
+    </van-search>
+</view> -->
+<view class="head">
+    <van-search custom-class="searchClass" value="{{ seacherVal }}" label="名前" placeholder="ユーザーIDを入力してください" show-action  bind:cancel="onCancel" bind:search="onSearch" action-text="キャンセル">
+    </van-search>
+</view>
+<view class="con" style="margin-top: 37%;">
+  <!-- 有数据 -->
+  <block wx:if="{{hasData}}">
+    <checkbox-group bindchange="actionChange">
+      <block wx:for="{{user}}" wx:for-item="item" wx:key="_id">
+        <!-- <van-swipe-cell right-width="{{ 100 }}">
+          <van-cell-group>
+            <label> -->
+              <view class="flex-row">
+                <checkbox value="{{item._id}}" disabled="{{false}}" checked="{{item.checked}}" wx:if="{{show_action&&item.identity==0}}"  />
+                <view class="c_item flex" bind:tap="getContent" data-_id="{{item._id}}">
+                  <view>
+                    <view class="item_title item_date">更新時間：{{item.create_time}}</view>
+                    <view class="flex-row j_b item_theme">
+                      <text class="text_ellipsis ">社員番号：{{item.username}}</text>
+                      <text class="text_ellipsis ">役割：{{columns[item.identity]}}</text>
+                    </view>
+                    <view class="flex-row j_b item_theme">
+                      <text class="text_ellipsis">ユーザーID：{{item.nickName}}</text>
+                      <text class="text_ellipsis">ユーザー名：{{item.name}}</text>
+                    </view>
+                 </view>
+                 </view>
+              </view>
+      </block>
+    </checkbox-group>
+  </block>
+    <!-- 无数据 -->
+  <block wx:else>
+  </block>
+</view>
+
+  <view class="fix_bottom managebut">
+  <view class="managebut j_b btn_list" >
+    <view style="margin-top:30rpx" catchtap="showAction">{{show_action?'キャンセル':'管理'}}</view>
+    <view class="flex-row">
+    <block wx:if="{{show_action}}">
+      <view class="btn {{list_num > 0?'btn_ative':''}}" bindtap="deleteUser">削除</view>
+    </block>
+    <block wx:else="{{show_action}}">
+      <view class="btn  btn_ative" bind:tap="useradd">追加</view>
+    </block>
+    </view>
+  </view>
+  <footer-nav-bar id="footer-nav-bar-id" navList="{{footerNavListAdmin}}" bind:onFooterNavChange="onFooterNavChange">
+</footer-nav-bar>
+</view>

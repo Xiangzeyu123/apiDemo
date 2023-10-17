@@ -1,0 +1,26 @@
+<view class="like">
+  <van-nav-bar custom-style="background:rgb(121, 187, 231);" title="トップページ" bind:click-left="onClickLeft" left-text="ログアウト" left-arrow bind:click-left="onClickLeft" />
+
+  <van-cell title="日付を選択する" value="{{ date }}" is-link bind:click="showPopup" />
+  <van-popup round position="bottom" show="{{ show }}" bind:close="onClose">
+    <van-datetime-picker type="year-month" value="{{ currentDate }}" min-date="{{ minDate }}" bind:input="onInput" bind:confirm="determine" bind:cancel="cancellation" />
+  </van-popup>
+
+  <view class="outLayer">
+    <view class="item" wx:for="{{workData}}">
+      <view class="itemHand">{{item.title}}</view>
+      <view class="itembody">{{item.totalDay}}</view>
+    </view>
+  </view>
+  <view class="divider">
+    <van-divider contentPosition="left">本月の案件</van-divider>
+  </view>
+</view>
+<view class="content">
+  <van-cell-group wx:for="{{thisMonthCase}}">
+  <van-cell title="本月の案件：{{item}}"/>
+</van-cell-group>
+</view>
+<!-- 底部导航栏 -->
+<footer-nav-bar id="footer-nav-bar-id" navList="{{footerNavList}}" bind:onFooterNavChange="onFooterNavChange">
+</footer-nav-bar>

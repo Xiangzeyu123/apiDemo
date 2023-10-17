@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "calendar":"/components/calendar/calendar",
+    "van-popup": "@vant/weapp/popup/index", 
+    "van-field": "@vant/weapp/field/index",
+    "van-picker": "@vant/weapp/picker/index"
+  }
+}

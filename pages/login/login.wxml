@@ -1,0 +1,34 @@
+<view class="top-box">
+    <view>Hi</view>
+    <view class="next-text">GBH勤怠管理システム</view>
+</view>
+<!-- 登录、注册 -->
+<view class="center-box">
+    <view class="nav">
+        <view class="right {{current==0?'select':''}}" bindtap="click" data-code="0">
+            <text>社员登录</text>
+          </view>
+        <view class="left {{current==1?'select':''}}" bindtap="click" data-code="1">
+            <text>总务登录</text>
+          </view>
+      </view>
+
+  <!-- 登录 -->
+    <view class="input-box">
+        <view class="wei-input">
+            <icon type="waiting" color="#44ADFB" size="16"></icon>
+            <input class="input" id="name" model:value="{{nickName}}" bindinput="getHone" auto-focus placeholder="IDを入力してください" />
+          </view>
+        <view class="wei-input">
+            <icon type="success" color="#44ADFB" size="16"></icon>
+            <input class="input" type="password" model:value="{{password}}" bindinput="getPassword" auto-focus placeholder="パスワードを入力してくだいさい" />
+          </view>
+      </view>
+    <view class="sumbit-btn">
+        <button class="button" bind:tap="login" style="background-color: #33ccff;font-size: 30rpx;" type="primary">ログイン</button>
+      </view>
+</view>
+<!-- 重影 -->
+<view class="shadow-1"></view>
+<!-- <view class="shadow shadow-1"></view> -->
+<!-- <view class="shadow shadow-2"></view> -->

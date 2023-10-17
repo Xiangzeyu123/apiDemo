@@ -1,0 +1,80 @@
+
+.table {
+  display: flex;
+  flex-direction: column;     /* 排列形式: 向下 */
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.van-button::before{
+  background-color:transparent!important;
+}
+.like_tail{
+  margin: 10% 10px 10px 10px;
+}
+.tr {
+  display: flex;
+  flex-direction: row;
+}
+.head-right-curr {
+  color: rgb(248, 29, 0);
+}
+
+.th, .td {  /* 公有的属性 */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;            /* 自动换行 */
+  width: 25%;					/* 4个25%相加刚好100% */
+  text-align: center;         /* 文本居中 */
+  justify-content:center;     /* 主轴居中 */
+  align-items: center;        /* 交叉轴居中 */
+  border-top: 0.05px solid #dadada;      /* 单元格上线框 */
+  border-bottom: 0.05px solid #dadada;   /* 单元格下线框 */
+  border-left: 0.05px solid #dadada;     /* 单元格左线框 */
+  border-right: 0.05px solid #dadada;    /* 单元格右线框 */
+}
+
+.th {
+  font-weight: 800;           /* 字体加重 */
+  background-color:#B3CCF4;   /* 背景色 */
+}
+
+.td {
+  background: #FFFFFF;  /* 背景色 */
+  height: 80rpx;
+}
+
+.date-show{ 
+  position: relative; 
+  width: 400rpx; 
+  font-family: PingFang-SC-Regular; 
+  /* font-size: 40rpx;  */
+  color: #282828; 
+  background: #FFFFFF;
+  text-align: center; 
+  margin: 0 auto 10rpx; 
+} 
+.lt-arrow,.rt-arrow{ 
+  position: absolute; 
+  top: 1rpx; 
+  width: 60rpx; 
+  height: 60rpx; 
+} 
+.lt-arrow image,.rt-arrow image{ 
+  width: 14rpx; 
+  height: 26rpx; 
+} 
+.lt-arrow{ 
+  left: -110rpx; 
+} 
+.rt-arrow{ 
+  right: -100rpx; 
+} 
+.lk_a{
+  width: 350px;height: 200px;
+  display: flex;
+  margin-top: 80rpx;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-content:center;     /* 主轴居中 */
+  align-items: center;        /* 交叉轴居中 */
+}

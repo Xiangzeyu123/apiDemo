@@ -1,0 +1,74 @@
+<van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="勤務表" />
+<!-- tabsDateChange -->
+<!-- <van-cell title="选择日期" value="当前日期：{{ date }}" is-link bind:click="showPopup" /> -->
+<calendar bind:change="dateChange" bind:kurikku="dateTap" defaultTime="" spot="{{spot}}" theme_color="#e07d50"></calendar>
+<van-popup round custom-style="showFrom" show="{{ showFrom }}" close-icon-position="top-right" bind:close="onCloseForm" custom-style="width:350px;height:420px;padding:40px 20px 0 20px;">
+    <van-cell-group>
+        <van-cell title="記入日付：" value="{{selectTime}}" />
+        <van-cell title="案件選択：" is-link value="{{contractSubject.name == null?'選択してください':contractSubject.name}}" arrow-direction="down" bind:tap="getCaseList" />
+        <van-cell title="作業状態" is-link value="{{workStatus == ''?'選択してください':workStatus.value}}" bind:tap="showStatus" arrow-direction="down" />
+        <!--   <van-cell title="出勤时刻：" is-link value="{{workHours}}" bind:tap="showAttendanceTime" arrow-direction="down" />
+    <van-cell title="退勤时刻：" is-link value="{{closingTtime}}" bind:tap="retirementTime" arrow-direction="down" /> -->
+        <van-field model:value="{{workHours}}"  type="number" label="勤務時間(時):" placeholder-style="text-align:right" disabled="{{workStatus.value=='休暇'}}" placeholder="勤務時間入力"> <van-button  wx:if="{{workHours!==null}}" slot="button" size="mini" custom-style="font-size:15px" type="none" >时</van-button>
+        </van-field>
+        <van-field model:value="{{closingTtime}}"   type="number" label="勤務時間(分):"  placeholder-style="text-align:right" disabled="{{workStatus.value=='休暇'}}" placeholder="勤務時間入力"> <van-button  wx:if="{{closingTtime!==null}}"  slot="button" size="mini" custom-style="font-size:15px" type="none"  >分</van-button>
+        <!--     wx:if="{{workHours!==null}}"
+            wx:if="{{closingTtime!==null}}" -->
+        </van-field>
+    </van-cell-group>
+    <view style="display: flex;justify-content:center;width: 310px;margin-top: 45px;">
+        <view style="width:170rpx;padding-right: 30%;">
+            <van-button type="primary" size="large" bind:tap="onExit">戻る</van-button>
+        </view>
+        <view style=" width:170rpx;">
+            <van-button type="info" size="large" bind:tap="submitData">確認</van-button>
+        </view>
+    </view>
+</van-popup>
+
+<!-- <view style="margin-top: 10px;">
+  <van-cell-group>
+    <van-cell>
+      <view slot="title">
+        <view class="van-cell-text">当前案件：{{}}</view>
+      </view>
+      <van-tag wx:if="{{ true }}"  size="large" type="success" id="success" bind:tap="Operate">
+        操作
+      </van-tag>
+    </van-cell>
+  </van-cell-group>
+</view> -->
+
+<van-popup round show="{{ statusOperate }}" closeable close-icon-position="top-right" bind:close="onCloseOperate">
+    <view class="lk_a">
+        <view style="width:230rpx;margin-right: 70rpx;">
+            <van-button type="primary" size="large" bind:tap="selectCase">案件を変更する</van-button>
+        </view>
+        <view style=" width:230rpx;margin-left: 70rpx;">
+            <van-button type="info" size="large" bind:tap="caseEnd">案件を終わる</van-button>
+        </view>
+    </view>
+</van-popup>
+
+
+
+
+
+<van-popup round position="bottom" show="{{ showStatus }}" bind:close="onCloseStatus">
+    <van-picker columns="{{ columns }}" default-index="{{ 2 }}" bind:confirm="onChange" bind:cancel="onCloseStatus" show-toolbar />
+</van-popup>
+
+<!-- <van-popup> -->
+<van-popup round position="bottom" show="{{ showDatetime != ''?true:false}}" bind:close="onCloseShow">
+    <van-datetime-picker type="time" value="{{ showDatetime!='closingTtime'?workHours:closingTtime}}" min-hour="{{  showDatetime!='closingTtime'?workHoursRange.minHour: closingTtimeRange.minHour}}" max-hour="{{  showDatetime!='closingTtime'?workHoursRange.maxHour: closingTtimeRange.maxHour }}" bind:cancel="datetimeClose" bind:confirm="set{{ showDatetime!='closingTtime'?'workHours':'closingTtime'}}" />
+</van-popup>
+
+
+
+<!-- <view class="like_tail">
+  <van-button type="primary" size="large" bind:tap="dateTap">今日通勤数据填写</van-button>
+</view> -->
+
+<!-- 底部导航栏 -->
+<footer-nav-bar id="footer-nav-bar-id" navList="{{footerNavList}}" bind:onFooterNavChange="onFooterNavChange">
+</footer-nav-bar>

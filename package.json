@@ -1,0 +1,15 @@
+{
+  "name": "miniprogram-3",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.10.23",
+    "node-xlsx": "^0.23.0"
+  },
+  "description": ""
+}
