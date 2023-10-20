@@ -1,0 +1,85 @@
+<view class="like">
+  <van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="{{identity == '0'?'個人案件':'案件管理'}}" left-text="戻る" left-arrow bind:click-left="onClickLeft" />
+</view>
+
+<view class="head_fix head" id="fix_box">
+  <scroll-view scroll-x="{{true}}" class="head_scroll">
+    <block wx:for="{{select_list}}" wx:key="select_list">
+      <view class="head_item {{index==choseType?'active':''}}" catchtap="tabSelect" data-index="{{index}}">
+        <text>{{item.name}}</text>
+        <image src="{{index==choseType?'/img/down_icon.png':'/img/down_icon.png'}}" />
+      </view>
+    </block>
+  </scroll-view>
+
+  <view class="head_result" wx:if="{{show_chose}}">
+    <view class="flex con_title j_b">
+      <view class="flex-row head_list">
+        <view class="item_sele" wx:if="{{sel_list.start_time || sel_list.end_time}}">
+          {{sel_list.start_time}}至{{sel_list.end_time}}
+        </view>
+      </view>
+      <view class="reset" catchtap="reset">重置</view>
+    </view>
+    <view class="result_tip">查询结果共计：{{total}}位</view>
+  </view>
+</view>
+
+
+<view class="con" style="margin-top:{{!show_chose?fix_top+60:fix_top+120}}px">
+  <!-- 有数据 -->
+  <block wx:if="{{hasData}}">
+    <checkbox-group bindchange="actionChange">
+      <block wx:for="{{caseList}}" wx:key="list">
+        <!-- <van-swipe-cell right-width="{{ 100 }}">
+          <van-cell-group>
+            <label> -->
+              <view class="flex-row">
+                <checkbox value="{{item._id}}" disabled="{{false}}" checked="{{item.checked}}" wx:if="{{show_action}}"  />
+                <view class="c_item flex" bind:tap="getContent" data-_id="{{item._id}}">
+                  <view>
+                    <!-- <view class="item_title">123</view> -->
+                    <view class="item_title item_date">开始时间：{{item.workeHours}}</view>
+                    <view class="flex-row j_b item_theme">
+                      <text class="text_ellipsis theme_text">案件名：{{item.contractSubject}}</text>
+                      <text class="text_ellipsis theme_text">契約番号：{{item.contractNumber}}</text>
+                    </view>
+                    <view class="flex-row j_b item_theme">
+                      <text class="text_ellipsis theme_text">監督員：{{item.supervisor}}</text>
+                      <text class="text_ellipsis theme_text">実施責任者：{{item.supervisor}}</text>
+                    </view>
+                    <!-- <view>契約番号：{{contractNumber }}</view> -->
+                  </view>
+                  <!-- 状态 -->
+                  <view class="status {{item.status==1?'ing':'over'}}">{{item.status==1?'正在进行':'已结束'}}</view>
+                </view>
+              </view>
+            <!-- </label>
+          </van-cell-group>
+          <view slot="right" class="lk_a"  bind:tap="setCaseIng" >设 为 当 前 在 做 案 件</view>
+        </van-swipe-cell> -->
+      </block>
+    </checkbox-group>
+  </block>
+  <!-- 无数据 -->
+  <block wx:else>
+  </block>
+</view>
+<date isShow="{{choseType==0}}" timeStart="{{sel_list.start_time}}" minDate="2019/1/1" timeEnd="{{sel_list.end_time}}" bind:tapYes="dateSubmit" bind:tapNo="closeModal" id="date" />
+
+<!-- 底部按钮 -->
+<block wx:if="{{identity !='0'}}">
+  <view class="fix_bottom flex-row">
+  <view class="flex-row j_b btn_list">
+    <view catchtap="showAction">{{show_action?'取消':'管理'}}</view>
+    <view class="flex-row">
+    <block wx:if="{{show_action}}">
+      <view class="btn {{list_num > 0?'btn_ative':''}}">删除</view>
+    </block>
+    <block wx:else="{{show_action}}">
+      <view class="btn  btn_ative" bind:tap="CaseAdd">新增</view>
+    </block>
+    </view>
+  </view>
+</view>
+</block>

@@ -1,0 +1,60 @@
+.outLayer{
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;   
+}
+/* .like{
+  position:fixed;
+  width:100%;
+  top: 0;
+  z-index: 99;
+} */
+.item{
+  margin-top: 20px;
+  flex-direction: row;
+  background: rgb(121, 187, 231);
+  width: 300rpx;
+  height: 200rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.15);
+}
+.itemHand{
+  padding-top: 8px;
+  font-family: 'PT Serif', serif;
+  text-align: center;
+  width: 100%;
+  height: 25%;
+  background: #B3CCF4;
+
+}
+.itembody{
+  width: 100%;
+  height: 50%;
+  background:#FFFFFF;
+  border-top: 1px solid #dadada;      /* 单元格上线框 */
+  text-align: center;         /* 文本居中 */
+  font-family: 'PT Serif', serif;
+  font-size: 1.5rem;
+  padding-top: 15%;
+}
+.cell{
+  margin-top: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.15);
+}
+.divider{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;            /* 自动换行 */
+  justify-content:center;     /* 主轴居中 */
+  margin-top: 30px;
+}
+.content{
+  padding-left: 14px;
+  
+}
+

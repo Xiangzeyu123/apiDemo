@@ -1,0 +1,36 @@
+<view class="like">
+  <van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="案件" left-text="返回" left-arrow bind:click-left="onClickLeft" />
+</view>
+<view class="like_1">
+  <van-cell-group>
+    <van-field model:value="{{ supervisor }}" label="監督員：" placeholder="監督員を入力してください" />
+    <van-field model:value="{{contractNumber}}" label="契約番号:" placeholder="契約番号を入力してください" />
+
+    <van-field model:value="{{ contractSubject }}" label="契約件名:" placeholder="契約件名を入力してください" />
+    <van-field model:value="{{ Director }}" label="実施責任者" placeholder="実施責任者を入力してください" />
+    <van-field model:value="{{ columns[status] }}" label="契約状態" bindtap='showPopup' readonly="{{true}}" placeholder="契約状態を選択してください" />
+    <van-popup show="{{ statusShow }}" bind:close="onClose" position="bottom" custom-style="height:50%">
+            <van-picker show-toolbar title="契約状態" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" />
+    </van-popup>
+    <van-cell title="作業時間" model:value="{{ workeHours }}" is-link bind:click="showLk" />
+  </van-cell-group>
+</view>
+
+<van-popup round position="bottom" show="{{ showLk }}" bind:close="onCloseLk">
+  <van-datetime-picker
+  type="year-month"
+  value="{{ currentDate }}"
+  min-date="{{ minDate }}"
+  bind:confirm="determine"
+  bind:cancel="cancellation"
+/>
+</van-popup>
+<view style="display: flex;margin-top: 70rpx; flex-direction: row;;justify-content: space-between;">
+  
+  <view style="width:170rpx;margin-left: 70rpx;">
+    <van-button type="primary" size="large" bind:tap="onExit">退出</van-button>
+  </view>
+  <view style=" width:170rpx;margin-right: 70rpx;">
+    <van-button type="info" size="large" bind:tap="submitData">保存</van-button>
+  </view>
+</view>

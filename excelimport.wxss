@@ -1,0 +1,9 @@
+.but{
+  display: block;
+  margin-top: 38rpx;
+}
+.text1{
+  display: block;
+  margin-top: 18rpx;
+  color:  rgb(228, 65, 24);
+}

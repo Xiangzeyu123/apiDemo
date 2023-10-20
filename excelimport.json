@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "footer-nav-bar": "/components/footer-nav-bar/footer-nav-bar",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-popup": "@vant/weapp/popup/index"
+  }
+}

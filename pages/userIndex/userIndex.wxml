@@ -1,0 +1,62 @@
+<van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="社员管理"  left-text="ログアウト" left-arrow bind:click-left="onClickLeft" />
+
+<view>
+    <van-search value="{{ seacherVal }}" label="名前" placeholder="ユーザー名を入力してください" show-action  bind:cancel="onCancel" bind:search="onSearch" action-text="キャンセル">
+    </van-search>
+</view>
+<view class="addVeiw">
+    <view class="textadd"><text>ユーザーリスト</text>
+    <block wx:if="{{!ifPd}}">
+    <button bindtap="addUser" class="addCss">ユーザーの追加</button>
+    </block> 
+    <block wx:if="{{ifPd}}">
+        <button bindtap="addUserCancel" class="addCss">キャンセル</button>
+    </block>
+    </view>
+</view>
+<view class="table">
+    <view class="trHead">
+        <view class="th1">インデックス</view>
+        <view class="th">ユーザー名</view>
+        <view class="th">イベント</view>
+    </view>
+    <view wx:for="{{user}}" wx:for-item="item" wx:key='_id'>
+        <view class="tr" bindtap='checkShow' data-item="{{item}}">
+            <view class="th1">{{index+1}}</view>
+            <view class="th">{{item.nickName}}</view>
+            <view class="th">
+                <button bindtap='changeUser' class='changeUserBut' data-item="{{item}}">パスワード変更</button>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="button_box">
+    <button class='button_style' bindtap='upPage'>ページアップ</button>
+    <button class='button_style' bindtap='downPage'>次頁</button>
+</view>
+<view style=" margin: 10px 10px 10px 10px; padding: 8rpx 8rpx 8rpx 8rpx; box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.15); ">
+    <van-cell-group>
+        <!-- <van-field value="{{ userFirst._id }}" readonly="{{!ifPd}}"  clearable label="id" placeholder="idを入力してください" bind:input="inputId" /> -->
+        <van-field value="{{ userFirst.nickName }}" readonly="{{!ifPd}}"  clearable label="ユーザー名" placeholder="ユーザー名を入力してください" bind:input="inputnickName" />
+        <van-field bindtap="showPopup" value="{{ userFirst.identity }}" readonly="{{true}}"  clearable label="役割" placeholder="役割を選択してください"/>
+        <van-popup show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height:50%">
+            <van-picker show-toolbar title="役割選択" columns="{{ columns }}" bind:cancel="onAddCancel" bind:confirm="onConfirm" />
+        </van-popup>
+        <block wx:if="{{changePd}}">
+            <van-field value="{{ userFirst.password }}" type="password" label="パスワード" placeholder="パスワードを入力してください" bind:input="inputPw" />
+        </block>
+    </van-cell-group>
+</view>
+<block wx:if="{{ifPd||changePd}}">
+    <view class="button_box1">
+        <button class='button_style1' bindtap='addcancel'>キャンセル</button>
+        <button class='button_style1' bindtap='addConfirm'>確認</button>
+    </view>
+</block>
+<!-- <view class="like">
+  <van-button type="primary" size="large"  bind:tap="excelimport">导出社员考勤数据</van-button>
+</view> -->
+
+<!-- 底部导航栏 -->
+<footer-nav-bar id="footer-nav-bar-id" navList="{{footerNavListAdmin}}" bind:onFooterNavChange="onFooterNavChange">
+</footer-nav-bar>

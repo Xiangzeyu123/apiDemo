@@ -1,0 +1,123 @@
+/* pages/userIndex/userIndex.wxss */
+
+.addVeiw{
+    width: 100%;
+    height: 80rpx;
+}
+.table {
+    display: flex;
+    flex-direction: column;     /* 排列形式: 向下 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 500rpx;
+}
+.trHead {
+    height: 50rpx;
+    display: flex;
+    flex-direction: row;
+}
+.tr {
+    height: 90rpx;
+    display: flex;
+    flex-direction: row;
+}
+.th1,.td1{  /* 公有的属性 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;            /* 自动换行 */
+    width: 30%;					/* 4个25%相加刚好100% */
+    text-align: center;         /* 文本居中 */
+    justify-content:center;     /* 主轴居中 */
+    align-items: center;        /* 交叉轴居中 */
+    border-top: 1px solid #dadada;      /* 单元格上线框 */
+    border-bottom: 1px solid #dadada;   /* 单元格下线框 */
+    border-left: 1px solid #dadada;     /* 单元格左线框 */
+    border-right: 1px solid #dadada;    /* 单元格右线框 */
+}
+/* .like{
+  width: 100%;
+  background: lightblue;
+  margin-top: 80px;
+} */
+.th, .td {  /* 公有的属性 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;            /* 自动换行 */
+    width: 40%;					/* 4个25%相加刚好100% */
+    text-align: center;         /* 文本居中 */
+    justify-content:center;     /* 主轴居中 */
+    align-items: center;        /* 交叉轴居中 */
+    border-top: 1px solid #dadada;      /* 单元格上线框 */
+    border-bottom: 1px solid #dadada;   /* 单元格下线框 */
+    border-left: 1px solid #dadada;     /* 单元格左线框 */
+    border-right: 1px solid #dadada;    /* 单元格右线框 */
+}
+
+.th1 {
+    font-weight: 800;           /* 字体加重 */
+    background-color:#a4bfeb;   /* 背景色 */
+}
+
+.th {
+    font-weight: 800;           /* 字体加重 */
+    background-color:#a4bfeb;   /* 背景色 */
+}
+
+.td {
+    background-color:#ace5ec;   /* 背景色 */
+}
+.td1 {
+    background-color:#ace5ec;   /* 背景色 */
+}
+.button_box {
+    display: flex;
+    text-align: center;
+}
+
+.button_style {
+    height: 50rpx;
+    margin-top: 25rpx;
+    margin-bottom: 25rpx;
+    width: 25%;
+    font-size: 11px;
+    color: cornflowerblue;
+    background-color: rgb(233, 207, 186);
+}
+
+.changeUserBut{
+    height: 50rpx;
+    width: 60%;
+    font-size: 10px;
+    color: cornflowerblue;
+    background-color: rgb(233, 207, 186);
+}
+.addCss{
+    margin-left: 500rpx;
+    width: 200rpx;
+    font-size: 10px;
+    height: 50rpx;
+    color: cornflowerblue;
+    background-color: rgb(233, 207, 186);
+}
+.textadd{
+    text-align: center;
+    line-height: 30rpx;
+}
+.confirmBut{
+    display: inline;
+    font-size: 20px;
+    margin-left: 40%;
+    color: cornflowerblue;
+    background-color: rgb(233, 207, 186);
+}
+.button_box1 {
+    margin-top: 5px;
+    display: flex;
+}
+.button_style1 {
+    width: 30%;
+    font-size: 15px;
+    color: cornflowerblue;
+    background-color: rgb(233, 207, 186);
+}

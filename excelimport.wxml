@@ -1,0 +1,18 @@
+<van-nav-bar custom-style="background:rgb(121, 187, 231);" title-class="color: rgb(248, 29, 0);" title="案件导出" />
+<text class="text1">レポート年月を選択してください:</text>
+<van-button  block custom-class="but" type="default" is-link bind:click="showPopup" >{{cellTitle}}</van-button>
+<text class="text1">インポート内容:</text>
+<van-button custom-class="but" type="default" block bindtap='inputworkDate' >出勤時間報告レポートダウンロード</van-button>
+<van-button custom-class="but" type="default" block bindtap='inputstatus'>出勤情報レポートダウンロード</van-button>
+<van-popup show="{{ show }}" position="bottom" custom-style="height:50%"  bind:close="onClose">
+<van-datetime-picker
+  type="year-month"
+  value="{{ currentDate }}"
+  min-date="{{ minDate }}"
+  bind:input="onInput"
+  bind:confirm='inputed'
+  bind:cancel='canceled'/>
+</van-popup>
+<!-- 底部导航栏 -->
+<footer-nav-bar id="footer-nav-bar-id" navList="{{footerNavListAdmin}}" bind:onFooterNavChange="onFooterNavChange">
+</footer-nav-bar>

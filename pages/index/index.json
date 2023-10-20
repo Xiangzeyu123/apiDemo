@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "footer-nav-bar": "/components/footer-nav-bar/footer-nav-bar",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-divider": "@vant/weapp/divider/index"
+  },
+  "navigationBarTitleText": "我的"
+}
